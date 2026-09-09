@@ -1,5 +1,5 @@
 FROM debian:bookworm
-#the "no-install-recommends => skips extra"recommended packages by debian".
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
      nginx openssl
 
