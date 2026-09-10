@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
      nginx openssl
 
 RUN mkdir -p /etc/nginx/ssl && \
-     openssl req -x509 -nodes -days 356 \
+     openssl req -x509 -nodes -days 365 \
           -newkey rsa:2048 \
           -keyout /etc/nginx/ssl/inception.key \
           -out /etc/nginx/ssl/inception.crt \
@@ -12,18 +12,8 @@ RUN mkdir -p /etc/nginx/ssl && \
 
 COPY conf/nginx.conf /etc/nginx/
 
+EXPOSE 443
+
 CMD ["nginx", "-g", "daemon off;"]
 
 
-
-
-
-
-
-
-
-
-
-
-# next step the conf of nginx
-# read about deleting the APT package list in RUN later
